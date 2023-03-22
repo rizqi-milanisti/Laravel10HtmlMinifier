@@ -1,6 +1,6 @@
 <?php
 
-namespace zamcoder\Laravel9HtmlMinifier\Middleware;
+namespace rizqimilanisti\Laravel9HtmlMinifier\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
