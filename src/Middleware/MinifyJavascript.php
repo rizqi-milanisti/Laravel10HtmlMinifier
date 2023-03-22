@@ -1,6 +1,6 @@
 <?php
 
-namespace rizqimilanisti\Laravel9HtmlMinifier\Middleware;
+namespace rizqimilanisti\Laravel10HtmlMinifier\Middleware;
 
 class MinifyJavascript extends Minifier
 {
