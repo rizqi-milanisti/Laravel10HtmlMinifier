@@ -61,18 +61,18 @@ atau
 ## Tahap pertama anda bisa menginstall paket ini dengan [Composer 2x](https://getcomposer.org/download/)
 
 ```sh
-composer require rizqiMilanisti/laravel10-html-minifier
+composer require rizqimilanisti/laravel10-html-minifier
 ```
 
 ## Publish konfigurasi file
 
 ```sh
-php artisan vendor:publish --provider="rizqiMilanisti\Laravel10HtmlMinifier\HtmlMinifierServiceProvider"
+php artisan vendor:publish --provider="rizqimilanisti\Laravel10HtmlMinifier\HtmlMinifierServiceProvider"
 ```
 
 ## Jangan lupa untuk mendaftarkan ke Global Middleware
 
-[\rizqiMilanisti\Laravel10HtmlMinifier\Middleware\MinifyHtml::class](src/Middleware/MinifyHtml.php) dan Middleware lainnya harus didaftarkan ke kernel jika diperlukan, contoh :
+[\rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyHtml::class](src/Middleware/MinifyHtml.php) dan Middleware lainnya harus didaftarkan ke kernel jika diperlukan, contoh :
 
 ```php
 
@@ -80,15 +80,15 @@ php artisan vendor:publish --provider="rizqiMilanisti\Laravel10HtmlMinifier\Html
 
 protected $middleware = [
     ....
-    \rizqiMilanisti\Laravel10HtmlMinifier\Middleware\MinifyHtml::class,         // middleware untuk minify html
-    \rizqiMilanisti\Laravel10HtmlMinifier\Middleware\MinifyCss::class,         // middleware untuk minify css style
-    \rizqiMilanisti\Laravel10HtmlMinifier\Middleware\MinifyJavascript::class, // middleware untuk minify kode javascript
+    \rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyHtml::class,         // middleware untuk minify html
+    \rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyCss::class,         // middleware untuk minify css style
+    \rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyJavascript::class, // middleware untuk minify kode javascript
 ];
 ```
 
 ## Informasi Middleware
 
-##### [\rizqiMilanisti\Laravel10HtmlMinifier\Middleware\MinifyHtml::class](src/Middleware/MinifyHtml.php)
+##### [\rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyHtml::class](src/Middleware/MinifyHtml.php)
 
 ```MinifyHtml::class``` fungsinya adalah untuk minify html menghapus blank spasi dan juga baris baru menjadi satu baris.
 
@@ -111,7 +111,7 @@ protected $middleware = [
 <html lang="id"><head><title>Laravel 10 Html Minifier</title></head><body><h1>Laravel 10 Html Minifier</h1></body></html>
 ```
 
-##### [\rizqiMilanisti\Laravel10HtmlMinifier\Middleware\MinifyCss::class](src/Middleware/MinifyCss.php)
+##### [\rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyCss::class](src/Middleware/MinifyCss.php)
 
 ```MinifyCss::class``` fungsinya adalah untuk minify css style menghapus blank spasi dan juga baris baru menjadi satu baris.
 
@@ -131,7 +131,7 @@ body {
 body{background-color:salmon;width:100%;height:100%}
 ```
 
-##### [\rizqiMilanisti\Laravel10HtmlMinifier\Middleware\MinifyJavascript::class](src/Middleware/MinifyJavascript.php)
+##### [\rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyJavascript::class](src/Middleware/MinifyJavascript.php)
 
 ```MinifyJavascript::class``` fungsinya adalah untuk minify kode javascript menghapus blank spasi dan juga baris baru menjadi satu baris.
 

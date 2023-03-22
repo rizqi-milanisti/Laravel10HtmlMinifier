@@ -1,6 +1,6 @@
 <?php
 
-namespace rizqiMilanisti\Laravel10HtmlMinifier;
+namespace rizqimilanisti\Laravel10HtmlMinifier;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
