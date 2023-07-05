@@ -61,7 +61,7 @@ atau
 ## Tahap pertama anda bisa menginstall paket ini dengan [Composer 2x](https://getcomposer.org/download/)
 
 ```sh
-composer require rizqimilanisti/laravel10-html-minifier
+composer require rizqimilanisti/laravel10-html-minifier:dev-main
 ```
 
 ## Publish konfigurasi file
