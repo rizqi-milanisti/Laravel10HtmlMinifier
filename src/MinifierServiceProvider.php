@@ -1,10 +1,10 @@
 <?php
 
-namespace rizqimilanisti\Laravel10HtmlMinifier;
+namespace rizqimilanisti\LaravelMinifier;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class HtmlMinifierServiceProvider extends BaseServiceProvider
+class MinifierServiceProvider extends BaseServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -19,7 +19,7 @@ class HtmlMinifierServiceProvider extends BaseServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__."/../config/laravel10-html-minifier.php" => config_path("laravel10-html-minifier.php"),
+            __DIR__."/../config/minifier.php" => config_path("minifier.php"),
         ]);
     }
 
@@ -28,6 +28,6 @@ class HtmlMinifierServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__."/../config/laravel10-html-minifier.php", "laravel10-html-minifier.php");
+        $this->mergeConfigFrom(__DIR__."/../config/minifier.php", "minifier.php");
     }
 }

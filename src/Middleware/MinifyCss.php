@@ -1,6 +1,6 @@
 <?php
 
-namespace rizqimilanisti\Laravel10HtmlMinifier\Middleware;
+namespace rizqimilanisti\LaravelMinifier\Middleware;
 
 class MinifyCss extends Minifier
 {
@@ -10,7 +10,7 @@ class MinifyCss extends Minifier
     {
         static::$minifyCssHasBeenUsed = true;
 
-        static::$allowInsertSemicolon = (bool) config("laravel9-html-minifier.css_automatic_insert_semicolon", true);
+        static::$allowInsertSemicolon = (bool) config("minifier.css_automatic_insert_semicolon", true);
 
         foreach ($this->getByTag("style") as $el)
         {

@@ -61,18 +61,18 @@ atau
 ## Tahap pertama anda bisa menginstall paket ini dengan [Composer 2x](https://getcomposer.org/download/)
 
 ```sh
-composer require rizqimilanisti/laravel10-html-minifier
+composer require rizqimilanisti/laravelminifier
 ```
 
 ## Publish konfigurasi file
 
 ```sh
-php artisan vendor:publish --provider="rizqimilanisti\Laravel10HtmlMinifier\HtmlMinifierServiceProvider"
+php artisan vendor:publish --provider="rizqimilanisti\LaravelMinifier\MinifierServiceProvider"
 ```
 
 ## Jangan lupa untuk mendaftarkan ke Global Middleware
 
-[\rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyHtml::class](src/Middleware/MinifyHtml.php) dan Middleware lainnya harus didaftarkan ke kernel jika diperlukan, contoh :
+[\rizqimilanisti\LaravelMinifier\Middleware\MinifyHtml::class](src/Middleware/MinifyHtml.php) dan Middleware lainnya harus didaftarkan ke kernel jika diperlukan, contoh :
 
 ```php
 
@@ -80,15 +80,15 @@ php artisan vendor:publish --provider="rizqimilanisti\Laravel10HtmlMinifier\Html
 
 protected $middleware = [
     ....
-    \rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyHtml::class,         // middleware untuk minify html
-    \rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyCss::class,         // middleware untuk minify css style
-    \rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyJavascript::class, // middleware untuk minify kode javascript
+    \rizqimilanisti\LaravelMinifier\Middleware\MinifyHtml::class,         // middleware untuk minify html
+    \rizqimilanisti\LaravelMinifier\Middleware\MinifyCss::class,         // middleware untuk minify css style
+    \rizqimilanisti\LaravelMinifier\Middleware\MinifyJavascript::class, // middleware untuk minify kode javascript
 ];
 ```
 
 ## Informasi Middleware
 
-##### [\rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyHtml::class](src/Middleware/MinifyHtml.php)
+##### [\rizqimilanisti\LaravelMinifier\Middleware\MinifyHtml::class](src/Middleware/MinifyHtml.php)
 
 ```MinifyHtml::class``` fungsinya adalah untuk minify html menghapus blank spasi dan juga baris baru menjadi satu baris.
 
@@ -111,7 +111,7 @@ protected $middleware = [
 <html lang="id"><head><title>Laravel 10 Html Minifier</title></head><body><h1>Laravel 10 Html Minifier</h1></body></html>
 ```
 
-##### [\rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyCss::class](src/Middleware/MinifyCss.php)
+##### [\rizqimilanisti\LaravelMinifier\Middleware\MinifyCss::class](src/Middleware/MinifyCss.php)
 
 ```MinifyCss::class``` fungsinya adalah untuk minify css style menghapus blank spasi dan juga baris baru menjadi satu baris.
 
@@ -131,7 +131,7 @@ body {
 body{background-color:salmon;width:100%;height:100%}
 ```
 
-##### [\rizqimilanisti\Laravel10HtmlMinifier\Middleware\MinifyJavascript::class](src/Middleware/MinifyJavascript.php)
+##### [\rizqimilanisti\LaravelMinifier\Middleware\MinifyJavascript::class](src/Middleware/MinifyJavascript.php)
 
 ```MinifyJavascript::class``` fungsinya adalah untuk minify kode javascript menghapus blank spasi dan juga baris baru menjadi satu baris.
 
@@ -155,12 +155,12 @@ for (let i = 0; i < 10; i++)    // tanpa
 for (let i = 0; i < 10; i++){console.log('hello dunia')}
 ```
 
-kamu juga bisa mengaburkan kode javascript dengan menyetel ke ```true``` bagian ```"obfuscate_javascript"``` dalam file : [config/laravel-html-minifier.php](config/laravel-html-minifier.php)
+kamu juga bisa mengaburkan kode javascript dengan menyetel ke ```true``` bagian ```"obfuscate_javascript"``` dalam file : [config/minifier.php](config/minifier.php)
 
 ## File Konfigurasi
 
 Setelah menginstall paket anda mungkin perlu mengkonfigurasi beberapa opsi
-Silahkan masuk ke file [config/laravel-html-minifier.php](config/laravel-html-minifier.php) untuk mengubah konfigurasi
+Silahkan masuk ke file [config/minifier.php](config/minifier.php) untuk mengubah konfigurasi
 
 ##### Nonaktifkan Layanan
 
@@ -168,10 +168,10 @@ Anda cukup menyetel ke ```false``` untuk menonaktifkan Layanan.
 
 ```php
 
-// file: config/laravel-html-minifier.php
+// file: config/minifier.php
 
 // setel bagian ini ke false untuk menonaktifkan layanan minify Laravel.
-"enable" => env("LARAVEL_HTML_MINIFIER_ENABLE", true),
+"enable" => env("RM_MINIFIER_ENABLE", true),
 ```
 
 ##### Otomatis Menambahkan Semicolon Atau Titik Koma Diakhir kode Pada CSS
@@ -182,7 +182,7 @@ Jika kode css anda mengalami bug saat menggunakan ```MinifyCss::class``` silahka
 
 // file: config/laravel-html-minifier.php
 
-"css_automatic_insert_semicolon" => env("LARAVEL_HTML_MINIFIER_CSS_AUTOMATIC_INSERT_SEMICOLON", true),
+"css_automatic_insert_semicolon" => env("RM_MINIFIER_CSS_AUTOMATIC_INSERT_SEMICOLON", true),
 ```
 
 ##### Otomatis Menambahkan Semicolon Atau Titik Koma Diakhir kode Pada Javascript
@@ -238,7 +238,7 @@ fungsi ini hanya berlaku jika menggunakan ```MinifyJavascript::class```
 
 // file: config/laravel-html-minifier.php
 
-"js_automatic_insert_semicolon" => env("LARAVEL_HTML_MINIFIER_JS_AUTOMATIC_INSERT_SEMICOLON", true),
+"js_automatic_insert_semicolon" => env("RM_MINIFIER_JS_AUTOMATIC_INSERT_SEMICOLON", true),
 ```
 
 ##### Menghapus Komentar HTML
@@ -252,7 +252,7 @@ Fungsi ini hanya berlaku jika menggunakan Middleware ```MinifyHtml::class```
 // file: config/laravel-html-minifier.php
 
 // setel bidang ini ke false untuk mematikan
-"remove_comments" => env("LARAVEL_HTML_MINIFIER_REMOVE_COMMENTS", true),
+"remove_comments" => env("RM_MINIFIER_REMOVE_COMMENTS", true),
 ```
 
 ##### Kaburkan Kode Javascript (Obfuscate)
@@ -281,7 +281,7 @@ Dalam kasus ini kamu cukup menyetelnya ke ```false``` untuk menonaktifkan dan me
 // file : config/laravel-html-minifier.php
 
 // setel ke true untuk mengaktifkan
-"obfuscate_javascript" => env("LARAVEL_HTML_MINIFIER_OBFUSCATE_JS", false),
+"obfuscate_javascript" => env("RM_MINIFIER_OBFUSCATE_JS", false),
 ```
 
 ##### Ignore / Abaikan Route

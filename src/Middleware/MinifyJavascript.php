@@ -1,6 +1,6 @@
 <?php
 
-namespace rizqimilanisti\Laravel10HtmlMinifier\Middleware;
+namespace rizqimilanisti\LaravelMinifier\Middleware;
 
 class MinifyJavascript extends Minifier
 {
@@ -10,9 +10,9 @@ class MinifyJavascript extends Minifier
     {
         static::$minifyJavascriptHasBeenUsed = true;
 
-        $obfuscate = (bool) config("laravel9-html-minifier.obfuscate_javascript", false);
+        $obfuscate = (bool) config("minifier.obfuscate_javascript", false);
 
-        static::$allowInsertSemicolon = (bool) config("laravel9-html-minifier.js_automatic_insert_semicolon", true);
+        static::$allowInsertSemicolon = (bool) config("minifier.js_automatic_insert_semicolon", true);
 
         foreach ($this->getByTag("script") as $el)
         {

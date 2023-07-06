@@ -1,5 +1,5 @@
 {
-    "name": "rizqimilanisti/laravel10-html-minifier",
+    "name": "rizqimilanisti/laravelminifier",
     "description": "Html Minifier adalah paket simpel untuk minify output Html, Css style, dan Javascript sebelum dirender ke browser untuk aplikasi Laravel anda.",
     "keywords": [
         "laravel",
@@ -23,14 +23,14 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "rizqimilanisti\\Laravel10HtmlMinifier\\": "src/"
+            "rizqimilanisti\\LaravelMinifier\\": "src/"
         }
     },
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
-                "rizqimilanisti\\Laravel10HtmlMinifier\\HtmlMinifierServiceProvider"
+                "rizqimilanisti\\LaravelMinifier\\MinifierServiceProvider"
             ]
         }
     }
