@@ -1,7 +1,5 @@
 
 # Laravel 10 Html Minifier
-Paket ini sebelumnya adalah milik https://github.com/dz-id/laravel-html-minifier , karena beliau belum update Laravel 10 , jadi saya coba mengupdatenya, mohon maaf jika ada yg salah.
-
 Adalah Paket simpel untuk minify HTML, Css Style, dan Javascript sebelum dirender ke browser untuk aplikasi Laravel 10 anda.
 
 Alat ini hanya bekerja jika output yang diberikan adalah bentuk struktur html yang valid meliputi tag html, head dan body. contohnya
